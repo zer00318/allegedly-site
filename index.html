@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Allegedly</title>
+<meta name="theme-color" content="#000000">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: { brand: '#3B82F6' }, } }
+};
+</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+  .container { max-width: 980px; }
+  .badge { padding: 0.25rem 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.15);}
+</style>
+</head>
+<body class="bg-black text-white antialiased">
+<header class="sticky top-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="font-semibold tracking-wide">Allegedly</a>
+    <nav class="hidden sm:flex gap-5 text-sm">
+      <a href="/book" class="hover:text-brand">Book</a>
+      <a href="/events" class="hover:text-brand">Events</a>
+      <a href="/privacy" class="hover:text-brand">Privacy</a>
+      <a href="/contact" class="hover:text-brand">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container mx-auto px-4 pt-6">
+  <div class="flex flex-wrap gap-2 text-white/80">
+    <span class="badge">NO VIDEO</span>
+    <span class="badge">NO AUDIO</span>
+    <span class="badge">NO ACTIVE POLITICS</span>
+    <span class="badge">100% PRIVACY</span>
+    <span class="badge">ANY TOPIC</span>
+  </div>
+
+  <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-6">Pick a topic → Book a slot</h1>
+  <p class="text-white/70 mt-2">Tap a topic to continue. You can propose your own if it’s not listed.</p>
+
+  <section id="topics" class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+    <button class="topic" data-topic="Philosophy">Philosophy</button>
+    <button class="topic" data-topic="Science">Science</button>
+    <button class="topic" data-topic="Technology">Technology</button>
+    <button class="topic" data-topic="Ethics">Ethics</button>
+    <button class="topic" data-topic="AI & Society">AI & Society</button>
+    <button class="topic" data-topic="Culture">Culture</button>
+    <button class="topic" data-topic="Education">Education</button>
+    <button class="topic" data-topic="Art & Media">Art & Media</button>
+    <button class="topic" data-topic="Other">Other…</button>
+  </section>
+
+  <div class="mt-6">
+    <a href="/topics" class="underline decoration-brand/60">Propose a custom topic instead</a>
+  </div>
+
+  <section class="mt-10 p-4 rounded-xl border border-white/10">
+    <h2 class="font-semibold">How it works</h2>
+    <ol class="list-decimal ml-5 mt-2 space-y-1 text-white/80">
+      <li>You talk. We anonymize. Raw voices are not published.</li>
+      <li>Speech → text → profanity coded (e.g., <code>f2</code>) → optional TTS.</li>
+      <li>Two avatars on screen; ideas first, faces optional.</li>
+    </ol>
+  </section>
+</main>
+
+<script>
+  document.querySelectorAll('.topic').forEach(btn => {
+    btn.className = 'topic px-3 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 active:bg-white/20 text-left';
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.topic;
+      if (t === 'Other') { window.location.href = '/topics'; return; }
+      try { localStorage.setItem('selectedTopic', t); } catch (e) {}
+      window.location.href = '/book';
+    });
+  });
+</script>
+
+<footer class="pb-24 sm:pb-8 mt-16 border-t border-white/10">
+  <div class="container mx-auto px-4 py-8 text-white/70 text-sm flex items-center justify-between">
+    <p>© 2025 Allegedly</p>
+    <a class="hover:text-white" href="/privacy">Privacy & Consent</a>
+  </div>
+</footer>
+
+<nav class="sm:hidden fixed bottom-0 inset-x-0 bg-black/95 border-t border-white/10">
+  <div class="grid grid-cols-4 text-center">
+    <a href="/" class="py-3 text-sm">Start</a>
+    <a href="/book" class="py-3 text-sm">Book</a>
+    <a href="/events" class="py-3 text-sm">Events</a>
+    <a href="/privacy" class="py-3 text-sm">About</a>
+  </div>
+</nav>
+
+</body></html>

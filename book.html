@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Allegedly</title>
+<meta name="theme-color" content="#000000">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: { brand: '#3B82F6' }, } }
+};
+</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+  .container { max-width: 980px; }
+  .badge { padding: 0.25rem 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.15);}
+</style>
+</head>
+<body class="bg-black text-white antialiased">
+<header class="sticky top-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="font-semibold tracking-wide">Allegedly</a>
+    <nav class="hidden sm:flex gap-5 text-sm">
+      <a href="/book" class="hover:text-brand">Book</a>
+      <a href="/events" class="hover:text-brand">Events</a>
+      <a href="/privacy" class="hover:text-brand">Privacy</a>
+      <a href="/contact" class="hover:text-brand">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container mx-auto px-4 pt-6">
+  <div id="topicBanner" class="hidden p-3 rounded-xl border border-white/15 bg-white/5 flex items-center justify-between">
+    <div>
+      <p class="text-sm text-white/60">Selected topic</p>
+      <p class="font-semibold" id="topicName">—</p>
+    </div>
+    <div class="flex gap-2">
+      <a href="/" class="px-3 py-2 rounded-lg border border-white/15">Change</a>
+      <a id="materialsLink" href="/materials" class="px-3 py-2 rounded-lg bg-brand text-black font-medium">Send materials</a>
+    </div>
+  </div>
+
+  <h1 class="text-2xl font-semibold mt-4">Book a session</h1>
+  <p class="text-white/70 mt-1">Choose any open slot below.</p>
+
+  <div class="mt-4 rounded-2xl border border-white/10 overflow-hidden">
+    <iframe src="https://cal.com/USER/TYPE?embed=true&theme=dark" width="100%" height="700" frameborder="0"></iframe>
+    <script async src="https://cal.com/embed.js"></script>
+  </div>
+
+  <p class="text-white/60 text-sm mt-3">Tip: if the notes field appears during booking, mention your selected topic.</p>
+</main>
+
+<script>
+  try {
+    const t = localStorage.getItem('selectedTopic');
+    if (t) {
+      document.getElementById('topicName').textContent = t;
+      const link = document.getElementById('materialsLink');
+      link.href = '/materials?topic=' + encodeURIComponent(t);
+      document.getElementById('topicBanner').classList.remove('hidden');
+    }
+  } catch(e) {}
+</script>
+
+<footer class="pb-24 sm:pb-8 mt-16 border-t border-white/10">
+  <div class="container mx-auto px-4 py-8 text-white/70 text-sm flex items-center justify-between">
+    <p>© 2025 Allegedly</p>
+    <a class="hover:text-white" href="/privacy">Privacy & Consent</a>
+  </div>
+</footer>
+
+<nav class="sm:hidden fixed bottom-0 inset-x-0 bg-black/95 border-t border-white/10">
+  <div class="grid grid-cols-4 text-center">
+    <a href="/" class="py-3 text-sm">Start</a>
+    <a href="/book" class="py-3 text-sm">Book</a>
+    <a href="/events" class="py-3 text-sm">Events</a>
+    <a href="/privacy" class="py-3 text-sm">About</a>
+  </div>
+</nav>
+
+</body></html>
