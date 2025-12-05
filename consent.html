@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Allegedly — Consent & Liability Waiver</title>
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0b0c; --panel:#111216; --ink:#f2f2f3; --muted:#a8acb3; --brand:#3b82f6; --accent:#00e0ff;
+      --ring: rgba(59,130,246,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+    .wrap{max-width:920px;margin:0 auto;padding:clamp(16px,3vw,28px)}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+    .wordmark{font-weight:700;letter-spacing:.02em}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:.4rem .65rem;border-radius:10px;border:1px solid #222634;background:#0f1116;color:#cdd3db;font-size:.8rem}
+    .title{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-weight:700;letter-spacing:.02em;margin:.25rem 0 0;font-size:clamp(1.6rem,3.8vw,2.2rem)}
+    .lede{color:var(--muted);margin:.5rem 0 1rem}
+    .panel{background:var(--panel);border:1px solid #1a1d25;border-radius:16px;padding:clamp(16px,2.5vw,22px);box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset}
+    .section h2{margin:.25rem 0 .5rem;font-size:1rem;color:#dfe3ea;letter-spacing:.03em}
+    .section p,.section li{color:#c9cdd5;line-height:1.55}
+    .grid{display:grid;gap:14px}
+    @media(min-width:860px){ .grid{grid-template-columns:1.3fr .9fr} }
+    .badgebar{display:flex;flex-wrap:wrap;gap:8px;margin:.35rem 0 .75rem}
+    .badge{padding:.25rem .55rem;border-radius:8px;border:1px solid #212432;background:#10131a;
+      color:#cfd5df;font-size:.72rem;letter-spacing:.03em}
+    .note{font-size:.82rem;color:#9aa1ad;margin-top:.35rem}
+    .checkline{display:flex;align-items:flex-start;gap:.6rem;margin:.6rem 0 0}
+    .checkline input{transform:translateY(.2rem)}
+    .success{display:none;border:1px solid #143c22;background:#0d2115;color:#d0f5da;border-radius:12px;padding:.8rem 1rem;margin-top:1rem}
+    .success.show{display:block}
+    .help{font-size:.78rem;color:#9aa2ad}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    a{color:#9ec5ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    label{font-size:.85rem;color:#cfd3db;margin-bottom:.25rem;display:block}
+    input[type="text"],input[type="date"]{
+      width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid #222638;background:#0f121a;color:#e9edf6;
+      outline:none;transition:border-color .15s, box-shadow .15s;font-size:1rem
+    }
+    input[type="text"]:focus,input[type="date"]:focus{border-color:#2a5fff;box-shadow:0 0 0 4px var(--ring)}
+    button{
+      width:100%;margin-top:.9rem;appearance:none;border:0;border-radius:12px;padding:.95rem 1.1rem;
+      background:linear-gradient(135deg, var(--brand), var(--accent));
+      color:#000;font-weight:700;letter-spacing:.02em;font-size:1rem;cursor:not-allowed;opacity:.5;transition:transform .08s ease, opacity .15s ease
+    }
+    button[data-ready="1"]{cursor:pointer;opacity:1}
+    button[data-ready="1"]:active{transform:translateY(1px)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="wordmark">allegedly<b>.buzz</b></div>
+      <span class="tag">Consent &amp; Liability</span>
+    </header>
+    <div class="badgebar">
+      <span class="badge">NO VIDEO</span>
+      <span class="badge">NO AUDIO (published)</span>
+      <span class="badge">NO ACTIVE POLITICS</span>
+      <span class="badge">100% PRIVACY</span>
+      <span class="badge">ANY TOPIC (within law)</span>
+    </div>
+    <h1 class="title">Read, acknowledge, sign — then enter</h1>
+    <p class="lede">To protect you and us, this page explains privacy, legal boundaries in Germany, and who is responsible for what. It’s short. Promise.</p>
+    <div class="grid">
+      <section class="panel section">
+        <h2>Data privacy (what we do with your data)</h2>
+        <ul>
+          <li><b>Purpose.</b> Conversations are recorded locally to transcribe speech into text. Raw voice is not published by default.</li>
+          <li><b>Transient processing.</b> Data is processed transiently for the session to generate anonymized output (speech-to-text; profanity replaced with neutral tokens; optional text-to-speech for publication).</li>
+          <li><b>Publication only with consent.</b> Only anonymized text/synthetic audio and avatar video may be shared publicly, if you consent.</li>
+          <li><b>Minimal storage.</b> We keep a consent record and anonymized materials. You may request access or deletion via your consent code.</li>
+          <li><b>Local device memory.</b> This page stores a small “consent confirmed” flag in your browser’s <span class="mono">localStorage</span> so you’re not asked again.</li>
+        </ul>
+        <hr style="border:0;height:1px;background:#1b1f2b;margin:14px 0">
+        <h2>Free speech, within German law</h2>
+        <p>We value open inquiry. However, participation is subject to German law. In particular, you must not post or advocate content prohibited under German criminal law, including <i>Volksverhetzung</i> (incitement to hatred, e.g. §130 StGB), threats of violence, defamation, or unlawful harassment. If you are unsure, stay on the safe, respectful side.</p>
+        <hr style="border:0;height:1px;background:#1b1f2b;margin:14px 0">
+        <h2>Liability &amp; platform stance</h2>
+        <ul>
+          <li><b>Your views are yours.</b> All statements and opinions expressed by participants are solely those of the individual speaker.</li>
+          <li><b>No endorsement.</b> The platform owner and organizers do not endorse, adopt, or verify participant statements.</li>
+          <li><b>Reservation of rights.</b> We may decline to publish, edit, or remove content that appears unlawful or violates our ground rules.</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <form id="consentForm" autocomplete="off" novalidate>
+          <div style="display:grid;gap:12px">
+            <div>
+              <label for="sig">Digital signature (type your name)</label>
+              <input id="sig" name="signature" type="text" placeholder="Your full name" required />
+              <p class="note">This serves as your digital signature.</p>
+            </div>
+            <div>
+              <label for="date">Date (auto)</label>
+              <input id="date" name="date" type="text" readonly />
+              <p class="note">Timestamp uses Europe/Berlin timezone.</p>
+            </div>
+          </div>
+          <label class="checkline">
+            <input id="ack" type="checkbox" required />
+            <span>I understand that I bear full legal responsibility for my statements.</span>
+          </label>
+          <button id="enterBtn" type="button" aria-disabled="true" title="Sign and check the box to continue">Enter Site</button>
+          <div id="ok" class="success">Consent recorded in this browser. Redirecting...</div>
+          <p class="help" style="margin-top:.6rem">Already consented on this device? <a href="#" id="skip">Skip this step</a></p>
+        </form>
+      </section>
+    </div>
+    <p class="help" style="margin-top:16px">This page is informational, not legal advice. For questions, email <a href="mailto:hello@allegedly.buzz">hello@allegedly.buzz</a>.</p>
+  </div>
+  <script>
+    const REDIRECT_TARGET = "/";
+    const STORAGE_KEY = "allegedlyConsent";
+    const STORAGE_META = "allegedlyConsentMeta";
+    const $ = sel => document.querySelector(sel);
+    const enable = (btn, on) => {
+      btn.dataset.ready = on ? "1" : "0";
+      btn.setAttribute("aria-disabled", on ? "false" : "true");
+      btn.style.cursor = on ? "pointer" : "not-allowed";
+      btn.style.opacity = on ? "1" : ".5";
+    };
+    function berlinTimestamp() {
+      try {
+        const fmt = new Intl.DateTimeFormat("de-DE", {
+          timeZone: "Europe/Berlin",
+          year: "numeric", month: "2-digit", day: "2-digit",
+          hour: "2-digit", minute: "2-digit", second: "2-digit"
+        });
+        return fmt.format(new Date());
+      } catch(e) {
+        return new Date().toISOString();
+      }
+    }
+    const sig = $("#sig");
+    const ack = $("#ack");
+    const dateInput = $("#date");
+    const btn = $("#enterBtn");
+    const ok = $("#ok");
+    const skip = $("#skip");
+    dateInput.value = berlinTimestamp();
+    const params = new URLSearchParams(location.search);
+    if (localStorage.getItem(STORAGE_KEY) === "1" && params.get("force") !== "1") {
+      location.replace(REDIRECT_TARGET);
+    }
+    function updateState(){
+      const signed = (sig.value || "").trim().length >= 2;
+      const checked = ack.checked;
+      enable(btn, signed && checked);
+    }
+    sig.addEventListener("input", updateState);
+    ack.addEventListener("change", updateState);
+    updateState();
+    btn.addEventListener("click", () => {
+      if (btn.dataset.ready !== "1") return;
+      const signedName = sig.value.trim();
+      const stamped = berlinTimestamp();
+      try {
+        localStorage.setItem(STORAGE_KEY, "1");
+        localStorage.setItem(STORAGE_META, JSON.stringify({
+          signedName, stamped, ua: navigator.userAgent
+        }));
+      } catch(e) {}
+      ok.classList.add("show");
+      setTimeout(() => location.assign(REDIRECT_TARGET), 600);
+    });
+    skip.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (localStorage.getItem(STORAGE_KEY) === "1") {
+        location.assign(REDIRECT_TARGET);
+      } else {
+        alert("No prior consent found in this browser. Please sign and acknowledge.");
+      }
+    });
+  </script>
+</body>
+</html>
